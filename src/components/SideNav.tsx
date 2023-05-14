@@ -1,5 +1,7 @@
 import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
+import IconHoverEffect from "./IconHoverEffect";
+import { VscHome } from "react-icons/vsc";
 
 const SideNav = () => {
   const session = useSession();
@@ -10,7 +12,14 @@ const SideNav = () => {
     <nav className="px-y sticky top-0 px-2">
       <ul className="flex flex-col items-start gap-2 whitespace-nowrap">
         <li>
-          <Link href="/">Home</Link>
+          <Link href="/">
+            <IconHoverEffect>
+              <span className="flex items-center gap-4">
+                <VscHome className="h-8 w-8" />
+                <span className="hiddne text-lg md:inline">Home</span>
+              </span>
+            </IconHoverEffect>
+          </Link>
         </li>
         {user != null && (
           <li>
